@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+* {
+  font-family: "Sora", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #181818;
+  padding-top: 80px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background: #3d3d3d;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffef00;
+  border-radius: 4px;
+}

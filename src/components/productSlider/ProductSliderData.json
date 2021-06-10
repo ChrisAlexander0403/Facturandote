@@ -1,0 +1,97 @@
+{
+    "emision":[
+        {
+            "id": "1",
+            "price": "$290",
+            "name": "Paquete 1",
+            "content": "50 folios",
+            "unityPrice": "$5.80"
+        },
+        {
+            "id": "2",
+            "price": "$450",
+            "name": "Paquete 2",
+            "content": "100 folios",
+            "unityPrice": "$4.50"
+        },
+        {
+            "id": "3",
+            "price": "$1,260",
+            "name": "Paquete 3",
+            "content": "300 folios",
+            "unityPrice": "$4.20"
+        },
+        {
+            "id": "4",
+            "price": "$1,900",
+            "name": "Paquete 4",
+            "content": "500 folios",
+            "unityPrice": "$3.80"
+        },
+        {
+            "id": "5",
+            "price": "$3,000",
+            "name": "Paquete 5",
+            "content": "1,000 folios",
+            "unityPrice": "$3.00"
+        },
+        {
+            "id": "6",
+            "price": "$8,250",
+            "name": "Paquete 6",
+            "content": "3,000 folios",
+            "unityPrice": "$2.75"
+        },
+        {
+            "id": "7",
+            "price": "$12,500",
+            "name": "Paquete 7",
+            "content": "5,000 folios",
+            "unityPrice": "$2.50"
+        },
+        {
+            "id": "8",
+            "price": "$17,500",
+            "name": "Paquete 8",
+            "content": "10,000 folios",
+            "unityPrice": "$1.75"
+        },
+        {
+            "id": "9",
+            "price": "$24,000",
+            "name": "Paquete 9",
+            "content": "20,000 folios",
+            "unityPrice": "$1.20"
+        }
+    ],
+    "timbrado":[
+        {
+            "id": "1",
+            "price": "$3,500",
+            "name": "Paquete 1",
+            "content": "5,000 folios",
+            "unityPrice": "$0.70"
+        },
+        {
+            "id": "2",
+            "price": "$6,400",
+            "name": "Paquete 2",
+            "content": "10,000 folios",
+            "unityPrice": "$0.64"
+        },
+        {
+            "id": "3",
+            "price": "$25,000",
+            "name": "Paquete 3",
+            "content": "50,000 folios",
+            "unityPrice": "$0.50"
+        },
+        {
+            "id": "4",
+            "price": "$40,000",
+            "name": "Paquete 4",
+            "content": "100,000 folios",
+            "unityPrice": "$0.40"
+        }
+    ]
+}
