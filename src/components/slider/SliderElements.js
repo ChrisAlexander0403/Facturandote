@@ -11,6 +11,7 @@ export const Slider = styled.div`
     align-items: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 20px 35px #00000080;
 
     @media screen and (max-width: 768px){
         height: 40vh;
@@ -22,6 +23,7 @@ export const Slide = styled.div`
     height: 80vh;
     transition: .5s;
     overflow: hidden;
+    box-shadow: 0 20px 35px #00000080;
 `;
 
 const ButtonStyles = css`
@@ -49,7 +51,8 @@ export const GoRight = styled.button`
 export const ImageComponent = styled.img`
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    box-shadow: 0 20px 35px #00000080;
 `;
 
 export const ArrowLeft = styled(IoIosArrowBack)`

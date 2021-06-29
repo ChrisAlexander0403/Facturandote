@@ -1,97 +1,110 @@
 {
-    "emision":[
+    "emision": [
         {
-            "id": "1",
-            "price": "$290",
+            "id": "e1",
+            "price": 290,
             "name": "Paquete 1",
             "content": "50 folios",
-            "unityPrice": "$5.80"
+            "unityPrice": "$5.80",
+            "pricePlusIVA": 336.40
         },
         {
-            "id": "2",
-            "price": "$450",
+            "id": "e2",
+            "price": 450,
             "name": "Paquete 2",
             "content": "100 folios",
-            "unityPrice": "$4.50"
+            "unityPrice": "$4.50",
+            "pricePlusIVA": 522.00
         },
         {
-            "id": "3",
-            "price": "$1,260",
+            "id": "e3",
+            "price": 1260,
             "name": "Paquete 3",
             "content": "300 folios",
-            "unityPrice": "$4.20"
+            "unityPrice": "$4.20",
+            "pricePlusIVA": 1461.00
         },
         {
-            "id": "4",
-            "price": "$1,900",
+            "id": "e4",
+            "price": 1900,
             "name": "Paquete 4",
             "content": "500 folios",
-            "unityPrice": "$3.80"
+            "unityPrice": "$3.80",
+            "pricePlusIVA": 2204.00
         },
         {
-            "id": "5",
-            "price": "$3,000",
+            "id": "e5",
+            "price": 3000,
             "name": "Paquete 5",
             "content": "1,000 folios",
-            "unityPrice": "$3.00"
+            "unityPrice": "$3.00",
+            "pricePlusIVA": 3480.00
         },
         {
-            "id": "6",
-            "price": "$8,250",
+            "id": "e6",
+            "price": 8250,
             "name": "Paquete 6",
             "content": "3,000 folios",
-            "unityPrice": "$2.75"
+            "unityPrice": "$2.75",
+            "pricePlusIVA": 9570.00
         },
         {
-            "id": "7",
-            "price": "$12,500",
+            "id": "e7",
+            "price": 12500,
             "name": "Paquete 7",
             "content": "5,000 folios",
-            "unityPrice": "$2.50"
+            "unityPrice": "$2.50",
+            "pricePlusIVA": 14500.00
         },
         {
-            "id": "8",
-            "price": "$17,500",
+            "id": "e8",
+            "price": 17500,
             "name": "Paquete 8",
             "content": "10,000 folios",
-            "unityPrice": "$1.75"
+            "unityPrice": "$1.75",
+            "pricePlusIVA": 20300.00
         },
         {
-            "id": "9",
-            "price": "$24,000",
+            "id": "e9",
+            "price": 24000,
             "name": "Paquete 9",
             "content": "20,000 folios",
-            "unityPrice": "$1.20"
+            "unityPrice": "$1.20",
+            "pricePlusIVA": 27840.00
         }
     ],
-    "timbrado":[
+    "timbrado": [
         {
-            "id": "1",
-            "price": "$3,500",
+            "id": "t1",
+            "price": 3500,
             "name": "Paquete 1",
             "content": "5,000 folios",
-            "unityPrice": "$0.70"
+            "unityPrice": "$0.70",
+            "pricePlusIVA": 4060.00
         },
         {
-            "id": "2",
-            "price": "$6,400",
+            "id": "t2",
+            "price": 6400,
             "name": "Paquete 2",
             "content": "10,000 folios",
-            "unityPrice": "$0.64"
+            "unityPrice": "$0.64",
+            "pricePlusIVA": 7424.00
         },
         {
-            "id": "3",
-            "price": "$25,000",
+            "id": "t3",
+            "price": 25000,
             "name": "Paquete 3",
             "content": "50,000 folios",
-            "unityPrice": "$0.50"
+            "unityPrice": "$0.50",
+            "pricePlusIVA": 29000.00
         },
         {
-            "id": "4",
-            "price": "$40,000",
+            "id": "t4",
+            "price": 40000,
             "name": "Paquete 4",
             "content": "100,000 folios",
-            "unityPrice": "$0.40"
+            "unityPrice": "$0.40",
+            "pricePlusIVA": 46400.00
         }
     ]
 }

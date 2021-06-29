@@ -1,7 +1,7 @@
-import styled, {keyframes} from 'styled-components';
-import {FiMail, FiPhone} from 'react-icons/fi';
-import {GoLocation} from 'react-icons/go';
-import {AiOutlineGlobal} from 'react-icons/ai';
+import styled, { keyframes } from 'styled-components';
+import { FiMail, FiPhone } from 'react-icons/fi';
+import { GoLocation } from 'react-icons/go';
+import { AiOutlineGlobal } from 'react-icons/ai';
 
 const lightning = keyframes`
     0%,100%{
@@ -47,11 +47,18 @@ export const FormContainer = styled.div`
 `;
 export const DivForm = styled.div`
     padding: 2em;
+    @media screen and (max-width: 768px){
+        grid-column: 1/-1;
+    }
 `;
 export const ContactForm = styled.div`
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-left: 20px;
+    @media screen and (max-width: 768px){
+        grid-column: 1/-1;
+    }
 `;
 export const InfoForm = styled.div`
     background-color: #000;
@@ -67,6 +74,7 @@ export const SubtitleLightning = styled.h3`
     text-align: center;
     font-size: 2.5rem;
     animation: ${lightning} 5s linear infinite;
+    user-select: none;
     @media screen and (max-width: 768px){
         margin-top: 30px;
     }
@@ -89,33 +97,42 @@ export const AreaText = styled.p`
     margin-top: 20px;
     grid-column: span 2;
 `;
-export const TextInfo = styled.p`
+export const TextInfo = styled.div`
+    font-size: 14px;
+    display: flex;
     margin: 5px 25px 10px;
 `;
 export const Label = styled.label`
     
 `;
 export const TextArea = styled.textarea`
-    min-width: 100%;
-    max-width: 100%;
+    width: 90%;
     padding: .7em;
     border: none;
     background: none;
     border-bottom: 1px solid #ffef00;
     color: #fff;
     outline: 0;
+    resize: none;
 `;
 export const Mail = styled(FiMail)`
     margin-right: 5px;
+    height: 100%;
 `;
 export const Phone = styled(FiPhone)`
     margin-right: 5px;
+    height: 100%;
+    font-size: 14px;
 `;
 export const Location = styled(GoLocation)`
     margin-right: 5px;
+    height: 100%;
+    font-size: 22px;
 `;
 export const Global = styled(AiOutlineGlobal)`
     margin-right: 5px;
+    height: 100%;
+    font-size: 16px;
 `;
 export const Input = styled.input.attrs(props => ({
     type: props.type
@@ -144,14 +161,14 @@ export const Input = styled.input.attrs(props => ({
     }
     &:-webkit-autofill {
         -webkit-text-fill-color: #fff !important;
+        caret-color: white;
     }
     //https://qastack.mx/programming/2781549/removing-input-background-colour-for-chrome-autocomplete
 `;
 export const SendInput = styled.input.attrs(props => ({
     type: 'submit'
 }))`
-    width: 100%;
-    padding: .7em;
+    width: 90%;
     border: none;
     margin-top: 20px;
     background: #ffef00;

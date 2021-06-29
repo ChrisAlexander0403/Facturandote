@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
 
-const useForm = (callback, ValidateInfo) => {
+const useForm = (ValidateInfo, callback, product) => {
     const [values, setValues] = useState({
         name: '',
+        enterprise: '',
+        rfc: '',
+        reason: '',
         email: '',
-        phone: '',
-        Comment: ''
+        cfdi: '',
+        file: [],
+        price: ''
     });
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -17,17 +21,19 @@ const useForm = (callback, ValidateInfo) => {
             [name]: value
         });
     };
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setValues({ ...values, price: `$${product.pricePlusIVA}`});
         setErrors(ValidateInfo(values));
         setIsSubmitting(true);
     }
+
     useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
             callback(values);
         }
     }, [errors]);
-    return { handleChange, values, handleSubmit, errors };
+    return { handleChange, values, errors, handleSubmit, setValues };
 }
 
 export default useForm;

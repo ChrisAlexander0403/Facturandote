@@ -2,26 +2,38 @@ import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 import {FiMail, FiPhone} from 'react-icons/fi';
 import {GoLocation} from 'react-icons/go'
+import {TiSocialFacebookCircular, TiSocialTwitterCircular, TiSocialInstagramCircular} from 'react-icons/ti';
 
 export const Container = styled.div`
-    position: absolute;
+    position: relative;
     height: 18rem;
     width: 100%;
-    background-color: #000;
+`;
+
+export const SocialMedia = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 20px;
+    padding: 0 20px;
 `;
 
 export const FooterInformation = styled.div`
-    height: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 90%;
     background-color: #111;
-    display: flex;
     flex-direction: row;
 `;
 
 export const Contact = styled.div`
     height: 100%;
-    width: 50%;
+    width: 100%;
     padding: 20px;
     
+    @media screen and (max-width: 768px){
+        grid-column: 1/-1;
+    }
 `;
 
 export const Title = styled.p`
@@ -34,12 +46,12 @@ export const Title = styled.p`
     }
 `;
 
-export const Text = styled.p`
-    padding: 20px 0 0 20px;
+export const Text = styled.div`
+    display: flex;
+    padding: 20px 40px 0 20px;
     color: #fff;
     font-size: 15px;
     @media screen and (max-width: 768px){
-        font-size: 12px;
         padding: 10px 0 0 10px;
     }
 `;
@@ -52,8 +64,12 @@ export const Image = styled.img`
 
 export const Description = styled.div`
     height: 100%;
-    width: 50%;
+    width: 100%;
     padding: 20px;
+
+    @media screen and (max-width: 768px){
+        grid-column: 1/-1;
+    }
 `;
 
 export const FooterEnd = styled.div`
@@ -64,6 +80,7 @@ export const FooterEnd = styled.div`
     align-items: center;
     padding-left: 30px;
     user-select: none;
+    background: #000;
     @media screen and (max-width: 768px){
         padding-left: 10px;
     }
@@ -82,6 +99,7 @@ export const Link = styled(NavLink)`
 
 export const Mail = styled(FiMail)`
     margin-right: 5px;
+    height: 100%;
 `;
 
 export const Phone = styled(FiPhone)`
@@ -89,4 +107,20 @@ export const Phone = styled(FiPhone)`
 `;
 export const Location = styled(GoLocation)`
     margin-right: 5px;
+`;
+
+export const Facebook = styled(TiSocialFacebookCircular)`
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+`;
+export const Twitter = styled(TiSocialTwitterCircular)`
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+`;
+export const Instagram = styled(TiSocialInstagramCircular)`
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
 `;

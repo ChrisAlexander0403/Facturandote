@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { NavLink as Link} from 'react-router-dom';
-import {FaBars} from 'react-icons/fa';
-import {CgClose} from 'react-icons/cg';
+import { NavLink as Link } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
+import { CgClose } from 'react-icons/cg';
 
 
 export const Nav = styled.nav`
@@ -44,6 +44,7 @@ export const NavLink = styled(Link)`
     height: 65%;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 16px;
 
     &.active{
         color: #fff;
@@ -57,7 +58,7 @@ export const NavLink = styled(Link)`
 
 export const Bars = styled(FaBars)`
     display: none;
-    color: #000;
+    color: #ffef00;
 
     @media screen and (max-width: 768px){
         display: block;
@@ -71,7 +72,7 @@ export const Bars = styled(FaBars)`
 `;
 export const Close = styled(CgClose)`
     display: none;
-    color: #000;
+    color: #ffef00;
 
     @media screen and (max-width: 768px){
         display: block;
@@ -85,10 +86,11 @@ export const Close = styled(CgClose)`
 `;
 
 export const NavMenu = styled.div`
+    position: relative;
     display: flex;
     align-items: center;
     margin-right: 24px;
-    z-index: 1;
+    z-index: 2;
 
     @media screen and (max-width: 768px){
         display: flex;
@@ -117,7 +119,7 @@ export const NavBtn = styled.nav`
     margin-right: 24px;
 `;
 
-export const NavBtnLink = styled(Link)`
+export const NavBtnLink = styled.button`
     height: 100%;
     background: #000;
     padding: 29px 22px;
@@ -129,6 +131,7 @@ export const NavBtnLink = styled(Link)`
     text-decoration: none;
     margin-left: 24px;
     text-shadow: 0 0 20px #ffef00;
+    font-size: 16px;
     &:hover{
         transition: all 0.5s ease-in-out;
         background: #ffef00;

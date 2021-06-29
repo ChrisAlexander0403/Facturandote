@@ -11,6 +11,7 @@ export const Body = styled.div`
     background-color: #181818;
     color: #fff;
     padding: 0 1.5rem;
+    min-height: 800px;
 `;
 export const Container = styled.div`
     background-color: #181818;
@@ -27,6 +28,7 @@ export const Title = styled.h1`
     grid-column: span 2;
     margin-bottom: 50px;
     padding-bottom: 30px;
+    user-select: none;
     @media screen and (max-width: 768px){
         font-size: 24px;
         margin-bottom: 20px;

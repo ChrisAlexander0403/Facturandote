@@ -6,10 +6,12 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
-import Factura from './pages/Factura';
 import FooterComponent from './components/footer/FooterComponent';
 import DistributorAccess from './pages/DistributorAccess';
 import ChatComponent from './components/chatComponent/ChatComponent';
+import Payment from './pages/Payment';
+import Questions from './pages/Questions';
+import Tutorials from './pages/Tutorials';
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Route path="/Services" exact component={Services}/>
         <Route path="/Contact" exact component={Contact}/>
         <Route path="/DistributorAccess" exact component={DistributorAccess}/>
-        <Route path="/Factura" exact component={Factura}/>
+        <Route path="/Payment/:id" exact component={Payment}/>
+        <Route path="/Questions" exact component={Questions}/>
+        <Route path="/Tutorials" exact component={Tutorials}/>
       </Switch>
-      <ChatComponent/>
+      {/* <ChatComponent/> */}
       <FooterComponent/>
     </Router>
   );

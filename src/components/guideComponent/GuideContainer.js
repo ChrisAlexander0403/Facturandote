@@ -1,8 +1,8 @@
 import React from 'react';
 import {GlobalContainer, Container, TitleContainer, Title, Content, Image} from './GuideElements';
-import Videos from '../../img/videos.jpg';
-import Preguntas from '../../img/preguntas.png';
-import Capacitacion from '../../img/capacitacion.jpg';
+import Videos from '../../img/videos.png';
+import Preguntas from '../../img/preguntas.jpg';
+import Capacitacion from '../../img/capacitacion.png';
 
 export default function GuideContainer(){
     const TitleContainerProps = {
@@ -15,7 +15,7 @@ export default function GuideContainer(){
         <GlobalContainer>
             <Container>
                 <TitleContainer>
-                    <Title>
+                    <Title to="/">
                         Manuales y Videos Tutoriales
                     </Title>
                     <Content>
@@ -29,7 +29,7 @@ export default function GuideContainer(){
                     clipPath={TitleContainerProps.Desk} 
                     clipPathMobile={TitleContainerProps.Mobile} 
                     Flex={TitleContainerProps.Flex}>
-                    <Title>
+                    <Title to="/Contact">
                         Solicitar Capacitación
                     </Title>
                     <Content  Align={TitleContainerProps.Align}>
@@ -40,7 +40,7 @@ export default function GuideContainer(){
             </Container>
             <Container>
                 <TitleContainer>
-                    <Title>
+                    <Title to="/Questions">
                         Preguntas Frecuentes
                     </Title>
                     <Content>

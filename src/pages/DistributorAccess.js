@@ -1,5 +1,5 @@
 import React from 'react';
-import DistributorAccessComponent from '../components/distributosAccess/DistributorAccessComponent';
+import DistributorAccessComponent from '../components/distributorsAccess/DistributorAccessComponent';
 
 const DistributorAccess = () => {
     return(

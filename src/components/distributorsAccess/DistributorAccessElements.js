@@ -1,9 +1,39 @@
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const rotate = keyframes`
     100%{
         transform: rotate(-360deg);
     }
+`;
+
+export const DivForm = styled.div`
+    padding: 2em;
+`;
+
+export const Success = styled.p`
+    margin: 20px;
+`;
+
+export const DivSuccess = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+`;
+
+export const SubtitleSuccess = styled.h2`
+    margin: 5px 0 20px;
+`;
+
+export const Image = styled.img`
+    width: 200px;
+`;
+
+
+export const Error = styled.p`
+    padding-top: 5px;
+    font-size: 12px;
+    color: red;
 `;
 
 export const FormContainer = styled.div`
@@ -90,6 +120,7 @@ export const TextArea = styled.textarea`
     border-bottom: 1px solid #ffef00;
     color: #fff;
     outline: 0;
+    resize: none;
 `;
 
 export const Label = styled.label`
@@ -109,13 +140,28 @@ export const Input = styled.input.attrs(props => ({
     &::placeholder{
         content: ${props => props.placeholder};
     }
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active{
+        box-shadow: 0 0 0 30px #181818 inset !important;
+    }
+    &:-webkit-autofill {
+        -webkit-text-fill-color: #fff !important;
+        caret-color: white !important;
+    }
 `;
 
 export const SendInput = styled.input.attrs(props => ({
     type: 'submit'
 }))`
     width: 85%;
-    padding: .7em;
     margin: 20px;
     border: none;
     margin-top: 20px;

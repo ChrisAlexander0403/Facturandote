@@ -66,7 +66,8 @@ export default function Form({submitForm}){
                     </Text>
                     <AreaText>
                         <Label>Comentario o Sugerencia</Label>
-                        <TextArea id={'Comment'}
+                        <TextArea 
+                        id={'Comment'}
                         placeholder={'Escribe algo...'} 
                         name={'Comment'}
                         values={values.Comment}

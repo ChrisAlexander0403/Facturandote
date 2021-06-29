@@ -1,5 +1,6 @@
 import styled, {css, keyframes} from 'styled-components';
 import {FaArrowAltCircleLeft, FaArrowAltCircleRight} from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
 
 const rotate = keyframes`
     100%{
@@ -72,7 +73,14 @@ export const Info = styled.p`
     font-size: 16px;
     text-shadow: 0 0 10px #fff;
 `;
-export const Buy = styled.button`
+
+export const IVA = styled.p`
+    font-size: 10px;
+    color: #ffef00;
+    margin-top: 20px;
+`;
+
+export const Buy = styled(NavLink)`
     height: 50px;
     width: 150px;
     background: #181818;
