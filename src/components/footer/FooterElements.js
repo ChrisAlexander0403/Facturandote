@@ -16,6 +16,9 @@ export const SocialMedia = styled.div`
     justify-content: flex-start;
     margin: 20px;
     padding: 0 20px;
+    @media screen and (max-width: 768px){
+        padding: 0;
+    }
 `;
 
 export const FooterInformation = styled.div`
@@ -29,7 +32,7 @@ export const FooterInformation = styled.div`
 export const Contact = styled.div`
     height: 100%;
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 30px;
     
     @media screen and (max-width: 768px){
         grid-column: 1/-1;
@@ -41,7 +44,6 @@ export const Title = styled.p`
     color: #fff;
     font-size: 20px;
     @media screen and (max-width: 768px){
-        font-size: 16px;
         padding: 10px 10px 15px 0;
     }
 `;
@@ -50,23 +52,23 @@ export const Text = styled.div`
     display: flex;
     padding: 20px 40px 0 20px;
     color: #fff;
-    font-size: 15px;
+    font-size: 16px;
     @media screen and (max-width: 768px){
         padding: 10px 0 0 10px;
     }
 `;
 
 export const Image = styled.img`
+    width: 250px;
     @media screen and (max-width: 768px){
-        width: 150px;
+        width: 170px;
     }
 `;
 
 export const Description = styled.div`
     height: 100%;
     width: 100%;
-    padding: 20px;
-
+    padding: 20px 20px 10px;
     @media screen and (max-width: 768px){
         grid-column: 1/-1;
     }
@@ -83,6 +85,8 @@ export const FooterEnd = styled.div`
     background: #000;
     @media screen and (max-width: 768px){
         padding-left: 10px;
+        font-size: 10px;
+        display: none;
     }
 `;
 
@@ -91,32 +95,37 @@ export const Link = styled(NavLink)`
     cursor: pointer;
     color: #fff;
     margin: auto 5px;
+    font-size: 16px;
     @media screen and (max-width: 768px){
-        font-size: 12px;
         margin: 10px 5px;
     }
 `;
 
 export const Mail = styled(FiMail)`
-    margin-right: 5px;
-    height: 100%;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 
 export const Phone = styled(FiPhone)`
-    margin-right: 5px;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 export const Location = styled(GoLocation)`
-    margin-right: 5px;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 
 export const Facebook = styled(TiSocialFacebookCircular)`
     color: #fff;
-    font-size: 40px;
+    font-size: 50px;
     cursor: pointer;
 `;
 export const Twitter = styled(TiSocialTwitterCircular)`
     color: #fff;
-    font-size: 40px;
+    font-size: 50px;
     cursor: pointer;
 `;
 export const Instagram = styled(TiSocialInstagramCircular)`

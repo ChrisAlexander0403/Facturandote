@@ -31,8 +31,8 @@ export default function ServicesInfoComponent(){
                 <Products>Precios en Paquetes de Timbrado</Products>
                 <ProductSliderComponent slides={data.timbrado}/>
                 <Text>Portal web que no requiere de un ERP.</Text>
-                <Text>Conector<br/><br/>Solución especialmente diseñada para empresas que buscan generar y timbrar sus CFDIs sin modificar su sistema actual, y sin la necesidad de conectarse vía Web Service.</Text>
-                <Text>Web Service<br/><br/>La solución consiste en ofrecer el servicio de certificación o timbrado de CFDIs a través de una conexión vía web service (SOAP). Esta solución está especialmente diseñada para empresas que cuentan con la capacidad de consumir un web service (SOAP) y generar su CFDI en el estándar requerido por el SAT.</Text>
+                <Text><p style={{fontSize: "18px"}}>Conector</p><br/><br/>Solución especialmente diseñada para empresas que buscan generar y timbrar sus CFDIs sin modificar su sistema actual, y sin la necesidad de conectarse vía Web Service.</Text>
+                <Text><p style={{fontSize: "18px"}}>Web Service</p><br/><br/>La solución consiste en ofrecer el servicio de certificación o timbrado de CFDIs a través de una conexión vía web service (SOAP). Esta solución está especialmente diseñada para empresas que cuentan con la capacidad de consumir un web service (SOAP) y generar su CFDI en el estándar requerido por el SAT.</Text>
             </Container>
         </Body>
     );

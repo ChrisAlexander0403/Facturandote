@@ -11,7 +11,6 @@ export default function Container(){
         <Options>
             <OptionsContainer>
                 <Squares>
-                    {/* <Icon1/> */}
                     <Name><Span><BiLockAlt/></Span><br/>Seguridad</Name>
                 </Squares>
                 <Squares>

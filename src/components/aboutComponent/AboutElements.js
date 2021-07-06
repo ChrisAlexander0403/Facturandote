@@ -29,6 +29,7 @@ export const Content = styled.p`
     margin: 10px 50px;
     @media screen and (max-width: 768px){
         margin: 10px;
+        text-align: left;
     }
 `;
 

@@ -48,9 +48,6 @@ export const Squares = styled.div`
     height: 100%;
     width: auto;
     text-align: center;
-    @media screen and (max-width: 768px){
-        padding: 5px;
-    }
     animation: ${lightning} 5s linear infinite;
     &:nth-child(1){
         animation-delay: 0s;
@@ -67,18 +64,26 @@ export const Squares = styled.div`
     &:nth-child(5){
         animation-delay: 4s;
     }
+    @media screen and (max-width: 768px){
+        padding: 5px;
+        animation: none;
+        text-shadow: 0 0 20px #ffef00;
+    }
 `;
 
 export const Span = styled.span`
     font-size: 4rem;
     @media screen and (max-width: 768px){
         font-size: 2rem;
+        text-shadow: 0 0 20px #ffef00;
     }
 `;
 
 export const Name = styled.p`
     font-size: 1.5rem;
     @media screen and (max-width: 768px){
+        color: #ffef00;
         font-size: .75rem;
+        text-shadow: 0 0 20px #ffef00;
     }
 `;

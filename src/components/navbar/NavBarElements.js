@@ -5,7 +5,7 @@ import { CgClose } from 'react-icons/cg';
 
 
 export const Nav = styled.nav`
-    background: #222;
+    background: #181818;
     height: 80px;
     width: 100%;
     display: flex;
@@ -24,7 +24,6 @@ export const NavLinkLogo = styled(Link)`
     cursor: pointer;
     border-radius: 4px;
     margin: 1rem 0 0 5rem;
-
     @media screen and (max-width: 768px){
         height: 30%;
         margin: auto 0;
@@ -32,7 +31,7 @@ export const NavLinkLogo = styled(Link)`
 `;
 
 export const Image = styled.img`
-    height: 55px;
+    height: 45px;
 `;
 
 export const NavLink = styled(Link)`
@@ -104,7 +103,7 @@ export const NavMenu = styled.div`
         transition: all 0.5s ease;
 
         &.active{
-            background: #222;
+            background: #181818;
             left: 0;
             opacity: 1;
             transition: all 0.5s ease;

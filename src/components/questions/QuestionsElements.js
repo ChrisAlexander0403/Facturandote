@@ -24,6 +24,9 @@ export const Question = styled.button`
     &:hover, &:active{
         background: #222;
     }
+    @media screen and (max-width: 768px){
+        width: 90%;
+    }
 `;
 
 export const Answer = styled.div`
@@ -34,6 +37,9 @@ export const Answer = styled.div`
 
 export const P = styled.div`
     padding: 10px 40px;
+    @media screen and (max-width: 768px){
+        padding: 10px 10px;
+    }
 `;
 
 export const Q = styled.div`

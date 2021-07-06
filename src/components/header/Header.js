@@ -12,12 +12,20 @@ export const Body = styled.div`
     color: #fff;
     padding: 0 1.5rem;
     min-height: 800px;
+    width: 100%;
+    @media screen and (max-width: 768px){
+        padding: 0;
+    }
 `;
 export const Container = styled.div`
     background-color: #181818;
     max-width: 1117px;
     margin: 0 auto;
     padding: 1.5rem;
+    @media screen and (max-width: 768px){
+        width: 100%;
+        padding: 1.5rem 0;
+    }
 `;
 export const Title = styled.h1`
     position: relative;

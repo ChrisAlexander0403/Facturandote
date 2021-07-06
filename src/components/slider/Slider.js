@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Slider as SliderComponent, Slide, GoLeft, GoRight, ImageComponent, ArrowLeft, ArrowRight} from './SliderElements';
-import distribuidor from '../../img/distribuidor.png';
-import paquetesBasicos from '../../img/paquetesBasicos.png';
+import distribuidor from './../../img/distribuidor.png';
+import paquetesBasicos from './../../img/paquetesBasicos.png';
 
 export default function Slider(){
 

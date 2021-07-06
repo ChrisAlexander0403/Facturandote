@@ -57,13 +57,13 @@ export const Title = styled(NavLink)`
     text-shadow: 0 0 10px #ffef00;
     font-size: 2rem;
     @media screen and (max-width: 768px){
-        font-size: 16px;
+        font-size: 18px;
     }
 `;
 
 export const Content = styled.p`
     color: #f4f4f4;
-    font-size: 15px;
+    font-size: 16px;
     margin: 25px;
     text-align: ${props => props.Align || 'start'};
     @media screen and (max-width: 768px){

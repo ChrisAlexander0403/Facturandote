@@ -28,7 +28,7 @@ export const Products = styled.h2`
     margin: 40px 50px 0;
     color: #ffef00;
     @media screen and (max-width: 768px){
-        margin: 30px 30px 0;
+        margin: 30px 10px 0;
         font-size: 20px;
     }
 `;

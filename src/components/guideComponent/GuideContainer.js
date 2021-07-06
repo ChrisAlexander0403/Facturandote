@@ -1,8 +1,8 @@
 import React from 'react';
 import {GlobalContainer, Container, TitleContainer, Title, Content, Image} from './GuideElements';
-import Videos from '../../img/videos.png';
-import Preguntas from '../../img/preguntas.jpg';
-import Capacitacion from '../../img/capacitacion.png';
+import Videos from './../../img/videos.png';
+import Preguntas from './../../img/preguntas.jpg';
+import Capacitacion from './../../img/capacitacion.png';
 
 export default function GuideContainer(){
     const TitleContainerProps = {

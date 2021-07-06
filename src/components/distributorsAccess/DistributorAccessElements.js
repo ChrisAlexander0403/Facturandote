@@ -8,6 +8,9 @@ const rotate = keyframes`
 
 export const DivForm = styled.div`
     padding: 2em;
+    @media screen and (max-width: 768px){
+        padding: 1em 2em;
+    }
 `;
 
 export const Success = styled.p`
@@ -47,11 +50,18 @@ export const SignUpForm = styled.div`
     display: flex;
     flex-direction: column;
     margin: 0 40px 40px;
+    @media screen and (max-width: 768px){
+        margin: 0 10px 40px;
+        grid-column: 1/-1;
+    }
 `;
 export const LogInDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media screen and (max-width: 768px){
+        grid-column: 1/-1;
+    }
 `;
 
 export const Subtitle = styled.h2`
@@ -121,6 +131,9 @@ export const TextArea = styled.textarea`
     color: #fff;
     outline: 0;
     resize: none;
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
 `;
 
 export const Label = styled.label`
@@ -156,6 +169,9 @@ export const Input = styled.input.attrs(props => ({
         -webkit-text-fill-color: #fff !important;
         caret-color: white !important;
     }
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
 `;
 
 export const SendInput = styled.input.attrs(props => ({
@@ -179,5 +195,8 @@ export const SendInput = styled.input.attrs(props => ({
     }
     &:active{
         transform: translateY(5px);
+    }
+    @media screen and (max-width: 768px){
+        width: 90%;
     }
 `;

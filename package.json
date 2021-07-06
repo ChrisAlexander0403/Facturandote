@@ -2,7 +2,7 @@
   "name": "facturandote-v2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost/",
+  "homepage": ".",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.15.0",
