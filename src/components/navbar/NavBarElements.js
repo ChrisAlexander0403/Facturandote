@@ -10,7 +10,7 @@ export const Nav = styled.nav`
     width: 100%;
     display: flex;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 3;
     position: fixed;
     margin-top: -80px;
 `;
@@ -24,6 +24,7 @@ export const NavLinkLogo = styled(Link)`
     cursor: pointer;
     border-radius: 4px;
     margin: 1rem 0 0 5rem;
+    user-select: none;
     @media screen and (max-width: 768px){
         height: 30%;
         margin: auto 0;
@@ -31,7 +32,7 @@ export const NavLinkLogo = styled(Link)`
 `;
 
 export const Image = styled.img`
-    height: 45px;
+    height: 55px;
 `;
 
 export const NavLink = styled(Link)`
@@ -44,7 +45,7 @@ export const NavLink = styled(Link)`
     cursor: pointer;
     border-radius: 4px;
     font-size: 16px;
-
+    user-select: none;
     &.active{
         color: #fff;
     }
@@ -59,7 +60,7 @@ export const Bars = styled(FaBars)`
     display: none;
     color: #ffef00;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1080px){
         display: block;
         position: absolute;
         top: 0;
@@ -85,29 +86,23 @@ export const Close = styled(CgClose)`
 `;
 
 export const NavMenu = styled.div`
+    background: #181818;
     position: relative;
     display: flex;
     align-items: center;
     margin-right: 24px;
-    z-index: 2;
+    z-index: 3;
+    transition: left 0.5s ease;
 
-    @media screen and (max-width: 768px){
-        display: flex;
+    @media screen and (max-width: 1080px){
         flex-direction: column;
         width: 100%;
         height: 89.4vh;
         position: fixed;
         top: 80px;
         left: -100%;
-        opacity: 1;
-        transition: all 0.5s ease;
-
         &.active{
-            background: #181818;
             left: 0;
-            opacity: 1;
-            transition: all 0.5s ease;
-            z-index: 1;
         }
     }
 `;

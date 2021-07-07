@@ -5,7 +5,6 @@ import {GoLocation} from 'react-icons/go'
 import {TiSocialFacebookCircular, TiSocialTwitterCircular, TiSocialInstagramCircular} from 'react-icons/ti';
 
 export const Container = styled.div`
-    position: relative;
     height: 18rem;
     width: 100%;
 `;
@@ -26,7 +25,6 @@ export const FooterInformation = styled.div`
     grid-template-columns: 1fr 1fr;
     min-height: 90%;
     background-color: #111;
-    flex-direction: row;
 `;
 
 export const Contact = styled.div`

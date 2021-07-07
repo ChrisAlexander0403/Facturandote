@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import {Slider as SliderComponent, Slide, GoLeft, GoRight, ImageComponent, ArrowLeft, ArrowRight} from './SliderElements';
 import distribuidor from './../../img/distribuidor.png';
 import paquetesBasicos from './../../img/paquetesBasicos.png';
+import folios from './../../img/folios.png';
 
 export default function Slider(){
 
     let sliderArray = [
         distribuidor,
-        paquetesBasicos
+        paquetesBasicos,
+        folios
     ];
     const [x,setX] = useState(0);
     // const [y, setY] = useState(5000);

@@ -12,7 +12,7 @@ export default function NavBar() {
     return (
         <>
             <Nav>
-                <NavLinkLogo to="/">
+                <NavLinkLogo to="/" onClick={closeMobileMenu}>
                     <Image src={FacturandoteLogo} />
                 </NavLinkLogo>
                 <div onClick={handleClick}>

@@ -2,7 +2,16 @@ import styled from 'styled-components';
 import {IoIosArrowDown, IoIosArrowBack} from 'react-icons/io';
 
 export const DivQuestions = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
+    height: auto;
+`;
+
+export const Subtitle = styled.p`
+    font-size: 20px;
+    font-weight: bold;
 `;
 
 export const Question = styled.button`

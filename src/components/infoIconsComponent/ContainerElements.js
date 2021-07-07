@@ -29,16 +29,19 @@ export const Options = styled.div`
     background-color: #222;
     box-shadow: 0 20px 35px #00000080;
 
-    @media screen and (max-width: 768px){
-        height: 6.5rem;
+    @media screen and (max-width: 480px){
+        height: auto;
+        background: #181818;
     }
 `;
 export const OptionsContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 20%);
+    grid-template-columns: repeat(5, 1fr);
     height: 100%;
     width: 60vw;
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 480px){
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, auto);
         width: 100%;
     }
 `;
@@ -51,18 +54,33 @@ export const Squares = styled.div`
     animation: ${lightning} 5s linear infinite;
     &:nth-child(1){
         animation-delay: 0s;
+        @media screen and (max-width: 480px){
+            grid-column: 1/3;
+        }
     }
     &:nth-child(2){
         animation-delay: 1s;
+        @media screen and (max-width: 480px){
+            grid-column: 3/5;
+        }
     }
     &:nth-child(3){
         animation-delay: 2s;
+        @media screen and (max-width: 480px){
+            grid-column: 5/7;
+        }
     }
     &:nth-child(4){
         animation-delay: 3s;
+        @media screen and (max-width: 480px){
+            grid-column: 2/4;
+        }
     }
     &:nth-child(5){
         animation-delay: 4s;
+        @media screen and (max-width: 480px){
+            grid-column: 4/6;
+        }
     }
     @media screen and (max-width: 768px){
         padding: 5px;
@@ -75,15 +93,14 @@ export const Span = styled.span`
     font-size: 4rem;
     @media screen and (max-width: 768px){
         font-size: 2rem;
-        text-shadow: 0 0 20px #ffef00;
     }
 `;
 
 export const Name = styled.p`
-    font-size: 1.5rem;
+    font-size: 24px;
     @media screen and (max-width: 768px){
         color: #ffef00;
-        font-size: .75rem;
-        text-shadow: 0 0 20px #ffef00;
+        font-size: 16px;
+        text-shadow: 0 0 10px #ffef00;
     }
 `;

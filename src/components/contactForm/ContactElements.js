@@ -123,23 +123,24 @@ export const TextArea = styled.textarea`
     resize: none;
 `;
 export const Mail = styled(FiMail)`
-    margin-right: 5px;
-    height: 100%;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 export const Phone = styled(FiPhone)`
-    margin-right: 5px;
-    height: 100%;
-    font-size: 14px;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 export const Location = styled(GoLocation)`
-    margin-right: 5px;
-    height: 100%;
-    font-size: 22px;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 export const Global = styled(AiOutlineGlobal)`
-    margin-right: 5px;
-    height: 100%;
-    font-size: 16px;
+    margin-right: 7px;
+    min-width: 16px;
+    min-height: 16px;
 `;
 export const Input = styled.input.attrs(props => ({
     type: props.type

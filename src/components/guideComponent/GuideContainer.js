@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {GlobalContainer, Container, TitleContainer, Title, Content, Image} from './GuideElements';
 import Videos from './../../img/videos.png';
 import Preguntas from './../../img/preguntas.jpg';
@@ -9,7 +9,8 @@ export default function GuideContainer(){
         Desk: 'polygon(100% 0, 100% 100%, 19% 100%, 0% 62%, 27% 0)',
         Mobile: 'polygon(10% 0, 100% 0, 100% 100%, 0 100%)',
         Flex: 'flex-end',
-        Align: 'end'
+        Align: 'end',
+        Margin: '0 100% 0 0'
     };
     return(
         <GlobalContainer>
@@ -28,11 +29,16 @@ export default function GuideContainer(){
                 <TitleContainer 
                     clipPath={TitleContainerProps.Desk} 
                     clipPathMobile={TitleContainerProps.Mobile} 
-                    Flex={TitleContainerProps.Flex}>
-                    <Title to="/Contact">
+                    flex={TitleContainerProps.Flex}>
+                    <Title 
+                        to="/Contact"
+                        align={TitleContainerProps.Align}>
                         Solicitar Capacitación
                     </Title>
-                    <Content  Align={TitleContainerProps.Align}>
+                    <Content  
+                        Align={TitleContainerProps.Align} 
+                        Margin={TitleContainerProps.Margin}
+                        >
                         Contáctenos para recibir capacitación de parte de nuestro personal.
                     </Content>
                 </TitleContainer>
