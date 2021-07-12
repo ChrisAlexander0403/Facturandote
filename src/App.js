@@ -12,21 +12,24 @@ import ChatComponent from './components/chatComponent/ChatComponent';
 import Payment from './pages/Payment';
 import Questions from './pages/Questions';
 import Tutorials from './pages/Tutorials';
+import ScrollToTop from './hooks/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <NavBar/>
-      <Switch>
-        <Route path="/" exact component={Home}/>
-        <Route path="/About" exact component={About}/>
-        <Route path="/Services" exact component={Services}/>
-        <Route path="/Contact" exact component={Contact}/>
-        <Route path="/DistributorAccess" exact component={DistributorAccess}/>
-        <Route path="/Payment/:id" exact component={Payment}/>
-        <Route path="/Questions" exact component={Questions}/>
-        <Route path="/Tutorials" exact component={Tutorials}/>
-      </Switch>
+      <ScrollToTop>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/About" exact component={About}/>
+          <Route path="/Services" exact component={Services}/>
+          <Route path="/Contact" exact component={Contact}/>
+          <Route path="/DistributorAccess" exact component={DistributorAccess}/>
+          <Route path="/Payment/:id" exact component={Payment}/>
+          <Route path="/Questions" exact component={Questions}/>
+          <Route path="/Tutorials" exact component={Tutorials}/>
+        </Switch>
+      </ScrollToTop>
       {/* <ChatComponent/> */}
       <FooterComponent/>
     </Router>
