@@ -13,6 +13,9 @@ export const Nav = styled.nav`
     z-index: 3;
     position: fixed;
     margin-top: -80px;
+    @media screen and (orientation: landscape) and (max-width: 1080px){
+        position: relative;
+    }
 `;
 
 export const NavLinkLogo = styled(Link)`
@@ -97,13 +100,18 @@ export const NavMenu = styled.div`
     @media screen and (max-width: 1080px){
         flex-direction: column;
         width: 100%;
-        height: 89.4vh;
+        height: 100vh;
         position: fixed;
         top: 80px;
         left: -100%;
         &.active{
             left: 0;
         }
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 1080px){
+        height: 80vh;
+        padding-bottom: 20px;
     }
 `;
 

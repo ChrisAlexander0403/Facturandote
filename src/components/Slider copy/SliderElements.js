@@ -32,12 +32,12 @@ export const Slide = styled.div`
 export const Image = styled.img`
     width: 100%;
     vertical-align: top;
-    user-drag: none;
+    /* user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
     -webkit-user-select: none;
-    -ms-user-select: none;
+    -ms-user-select: none; */
 `;
 
 export const DivText = styled.div`

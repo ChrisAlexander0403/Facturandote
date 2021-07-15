@@ -19,6 +19,23 @@ export default function FooterComponent(){
                     <SocialMedia>
                         <Facebook onClick={facebook}></Facebook>
                         <Twitter onClick={twitter}></Twitter>
+                        <div 
+                            style={{color: '#fff', 
+                                margin: '5px 20px',
+                                fontSize: '10px'}}
+                        >
+                            Icons made by 
+                            <a 
+                                style={{textDecoration:'none', color: '#ffef00'}} 
+                                href="https://www.freepik.com" 
+                                title="Freepik"
+                            > Freepik </a> from 
+                            <a 
+                                style={{textDecoration:'none', color: '#ffef00'}} 
+                                href="https://www.flaticon.com/" 
+                                title="Flaticon"
+                            > www.flaticon.com </a>
+                        </div>
                     </SocialMedia>
                 </Description>
                 <Contact>

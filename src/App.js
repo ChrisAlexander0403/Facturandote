@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import NavBar from './components/navbar/NavBar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -13,8 +13,15 @@ import Payment from './pages/Payment';
 import Questions from './pages/Questions';
 import Tutorials from './pages/Tutorials';
 import ScrollToTop from './hooks/ScrollToTop';
+import Error404 from './pages/Error404';
 
 function App() {
+  useEffect(() => {
+    window.oncontextmenu = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  },[])
   return (
     <Router>
       <NavBar/>
@@ -28,6 +35,7 @@ function App() {
           <Route path="/Payment/:id" exact component={Payment}/>
           <Route path="/Questions" exact component={Questions}/>
           <Route path="/Tutorials" exact component={Tutorials}/>
+          <Route path="*" component={Error404}/>
         </Switch>
       </ScrollToTop>
       {/* <ChatComponent/> */}

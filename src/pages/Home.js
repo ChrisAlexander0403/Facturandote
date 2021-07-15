@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from '../components/Slider/Slider';
+import Slider from '../components/Slider copy/Slider';
 import Container from '../components/infoIconsComponent/Container';
 import GuideContainer from '../components/guideComponent/GuideContainer';
 

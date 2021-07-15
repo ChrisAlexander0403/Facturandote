@@ -17,7 +17,7 @@ const Slider = (props) => {
 
     useEffect(() => {
 
-        slideShow.current.addEventListener('dragstar', (e) => e.preventDefault());
+        slideShow.current.addEventListener('dragstart', (e) => e.preventDefault());
 
         intervalSlideShow.current = setInterval(() => {
             next();
@@ -76,25 +76,42 @@ const Slider = (props) => {
         }
     }
 
-    const start = (e) => {
-        setStartPosition(getPositionX(e));
-        setIsDragging(true);
-        setAnimationID(requestAnimationFrame(animation));
+    const slides = Array.from(document.querySelectorAll('.slide'));
+
+    slides.forEach((slide, index) => {
+        slide.addEventListener('touchstart', touchStart(index));
+        slide.addEventListener('touchend', touchEnd);
+        slide.addEventListener('touchmove', touchMove);
+
+        slide.addEventListener('mousedown', touchStart(index));
+        slide.addEventListener('mouseup', touchEnd);
+        slide.addEventListener('mouseleave', touchEnd);
+        slide.addEventListener('mousemove', touchMove);
+    })
+
+    const touchStart = (index) => {
+        return (e) => {
+            setCurrentIndex(index);
+            setStartPosition(getPositionX(e));
+            setIsDragging(true);
+            setAnimationID(requestAnimationFrame(animation));
+        }
     }
 
-    const end = () => {
+    const touchEnd = () => {
         setIsDragging(false);
         cancelAnimationFrame(animationID);
         const movedBy = currentTranslate - prevTranslate;
-        if(movedBy < -100){
-            next();
+        if(movedBy < -100 && currentIndex < slides.length){
+            setCurrentIndex(currentIndex + 1);
         }
-        if(movedBy > 100){
-            prev();
+        if(movedBy > 100 && currentIndex > 0){
+            setCurrentIndex(currentIndex -1);
         }
+        setPositionByIndex()
     }
 
-    const move = (e) => {
+    const touchMove = (e) => {
         if(isDragging){
             const currentPosition = getPositionX(e);
             setCurrentTranslate(prevTranslate + currentPosition - startPosition)
@@ -124,17 +141,8 @@ const Slider = (props) => {
 
     return (
         <Main width={props.width}>
-            <SlideShow 
-                ref={slideShow} 
-                onTouchStart={start} 
-                onTouchEnd={end} 
-                onTouchMove={move}
-                onMouseDown={start}
-                onMouseUp={end}
-                onMouseMove={move}
-                onMouseLeave={end}
-            >
-                <Slide>
+            <SlideShow ref={slideShow}>
+                <Slide className={'slide'}>
 
                         <Image src={distribuidor} alt={""}/>
   
@@ -142,14 +150,14 @@ const Slider = (props) => {
                         <Text color={"#fff"}>15% de descuento en productos apple</Text>
                     </DivText> */}
                 </Slide>
-                <Slide>
+                <Slide className={'slide'}>
                         <Image src={paquetesBasicos} alt={""}/>
                     
                     {/* <DivText>
                         <Text>15% de descuento en productos apple</Text>
                     </DivText> */}
                 </Slide>
-                <Slide>
+                <Slide className={'slide'}>
 
                         <Image src={folios} alt={""}/>
                     
