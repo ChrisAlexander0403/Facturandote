@@ -21,7 +21,10 @@ const Accordeon = ({ title, src }) => {
             <Subtitle
                 style={{ background: `${collapsible ? "#222" : "#181818"}` }}
             >
-                <p>{title}</p><Plus/>
+                <p>{title}</p>
+                <Plus
+                    style={{ transition: 'all .5s ease', transform: `${collapsible ? 'rotate(675deg)' : 'rotate(-720deg)'}` }}
+                />
             </Subtitle>
             <Video 
                 src={src}
