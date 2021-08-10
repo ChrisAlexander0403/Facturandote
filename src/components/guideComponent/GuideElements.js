@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const GlobalContainer = styled.div`
     display: flex;
@@ -67,7 +67,7 @@ export const Image = styled.img`
     }
 `;
 
-export const Title = styled(NavLink)`
+export const Title = styled(Link)`
     color: #ffef00;
     text-decoration: none;
     text-shadow: 0 0 10px #ffef00;

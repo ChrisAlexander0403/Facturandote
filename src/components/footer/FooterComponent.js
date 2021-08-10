@@ -19,7 +19,7 @@ export default function FooterComponent(){
                     <SocialMedia>
                         <Facebook onClick={facebook}></Facebook>
                         <Twitter onClick={twitter}></Twitter>
-                        <div 
+                        {/* <div 
                             style={{color: '#fff', 
                                 margin: '5px 20px',
                                 fontSize: '10px'}}
@@ -35,7 +35,7 @@ export default function FooterComponent(){
                                 href="https://www.flaticon.com/" 
                                 title="Flaticon"
                             > www.flaticon.com </a>
-                        </div>
+                        </div> */}
                     </SocialMedia>
                 </Description>
                 <Contact>
