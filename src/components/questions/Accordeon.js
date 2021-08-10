@@ -19,7 +19,7 @@ export default function Accordeon({question, answer}){
             </Question>
             <Answer 
                 ref={content}
-                CSS={collapsible ? "auto" : "0px"} 
+                // CSS={collapsible ? "auto" : "0px"} 
                 style={{height: `${height}`, transition: "height 0.5s ease-in-out"}}
             >
                 <P>{answer}</P>

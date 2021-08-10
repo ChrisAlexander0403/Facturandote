@@ -14,8 +14,8 @@ export default function QuestionsComponent(){
                     {data.map((el, index) => {
                         return(
                             <div key={index}>
-                            <Accordeon question={el.question} answer={el.answer} />
-                        </div>
+                                <Accordeon question={el.question} answer={el.answer} />
+                            </div>
                         );
                     })}
                 </DivQuestions>

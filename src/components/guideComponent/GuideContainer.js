@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {GlobalContainer, Container, TitleContainer, Title, Content, Image} from './GuideElements';
 import Videos from './../../img/videos.png';
 import Preguntas from './../../img/preguntas.jpg';
@@ -16,7 +16,7 @@ export default function GuideContainer(){
         <GlobalContainer>
             <Container>
                 <TitleContainer>
-                    <Title to="/">
+                    <Title to="/Tutorials">
                         Manuales y Videos Tutoriales
                     </Title>
                     <Content>
