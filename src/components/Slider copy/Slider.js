@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Controllers, DivText, Image, LeftArrow, Main, RightArrow, Slide, SlideShow, Text } from './SliderElements';
+import { Button, Controllers, Image, LeftArrow, Main, RightArrow, Slide, SlideShow } from './SliderElements';
 
 import distribuidor from './../../img/distribuidor.png';
 import paquetesBasicos from './../../img/paquetesBasicos.png';

@@ -10,7 +10,7 @@ export default function DetailsForm({ id }) {
         } else if (id.charAt(0) === 't') {
             setProduct(data.timbrado.find(el => el.id === id))
         }
-    }, []);
+    }, [id]);
     return (
         <DetailsDiv>
             <Name>{product.name}</Name>

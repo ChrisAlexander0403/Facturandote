@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {IoIosArrowDown, IoIosArrowBack} from 'react-icons/io';
+import { IoIosArrowBack } from 'react-icons/io';
 
 export const DivQuestions = styled.div`
     position: relative;
@@ -56,10 +56,7 @@ export const Q = styled.div`
     width: 90%;
 `;
 
-export const ArrowDown = styled(IoIosArrowDown)`
-    font-size: 20px;
-`;
-
 export const ArrowBack = styled(IoIosArrowBack)`
     font-size: 20px;
+    transition: transform .5s ease-in-out;
 `;

@@ -7,7 +7,7 @@ export default function ChatComponent() {
     const [x, setX] = useState(360);
     const [active, setActive] = useState(false);
     const [click, setClick] = useState(false);
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
     const [isOpen, setIsOpen] = useState(false);
     const message = useRef(null);
     const message2 = useRef(null);

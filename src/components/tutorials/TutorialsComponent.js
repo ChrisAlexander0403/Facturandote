@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Body, Container, Title, Span } from '../header/Header';
 import Accordeon from './Accordeon';
+import { LinksContainer, DownloadButton, Button, Text, Download } from './TutorialsElements';
+import catCFDI from '../../documents/catCFDI.xls';
 
 export default function TutorialsComponent(){
 
@@ -56,6 +59,30 @@ export default function TutorialsComponent(){
                         <Accordeon key={el.id} title={el.title} src={el.src}/>
                     );
                 })}
+                <LinksContainer>
+                    <Link to='/Tutorials/Manual' style={{ textDecoration: 'none' }}>
+                        <Button>
+                            <Text>Descargar</Text>
+                            <DownloadButton>
+                                <Text className='inside'>Manual Facturandote</Text>
+                                <Text className='inside down'>3.49MB</Text>
+                            </DownloadButton>
+                        </Button>
+                    </Link>
+                    <Download 
+                        style={{ textDecoration: 'none' }}
+                        href={catCFDI}
+                        download='catCFDI.xls'
+                    >
+                        <Button>
+                            <Text>Descargar</Text>
+                            <DownloadButton>
+                                <Text className='inside'>Catálogo CFDI</Text>
+                                <Text className='inside down'>18.4MB</Text>
+                            </DownloadButton>
+                        </Button>
+                    </Download>
+                </LinksContainer>
             </Container>
         </Body>
     );

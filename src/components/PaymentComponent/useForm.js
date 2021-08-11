@@ -32,7 +32,7 @@ const useForm = (ValidateInfo, callback, product) => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
             callback(values);
         }
-    }, [errors]);
+    }, [errors, callback, isSubmitting, values]);
     return { handleChange, values, errors, handleSubmit, setValues };
 }
 

@@ -19,7 +19,7 @@ export default function CheckoutForm({ id, submitForm, loading }) {
         } else if (id.charAt(0) === 't') {
             setProduct(productData.timbrado.find(el => el.id === id))
         }
-    }, []);
+    }, [id]);
     const { handleChange, values, errors, handleSubmit, setValues } = useForm(ValidateInfo, submitForm, product);
     
     const updateUploadedFiles = (files) => setValues({ ...values, file: files});

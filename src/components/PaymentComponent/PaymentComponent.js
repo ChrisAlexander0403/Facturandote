@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Div } from './PaymentElements';
 // import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+// import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { Body, Container, Title, Span } from '../header/Header';
 import DetailsForm from './DetailsForm';

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Answer, ArrowDown, Question, P, Q, ArrowBack } from './QuestionsElements';
+import { Answer, Question, P, Q, ArrowBack } from './QuestionsElements';
 
 export default function Accordeon({question, answer}){
     const [collapsible, setCollapsible] = useState(false);
@@ -15,7 +15,9 @@ export default function Accordeon({question, answer}){
                 onClick={Toggle} 
                 style={{background: `${collapsible ? "#222" : "#181818"}`}}
             >
-                <Q>{question}</Q>{collapsible ? <ArrowDown/> : <ArrowBack/>}
+                <Q>{question}</Q>
+                {/* {collapsible ? <ArrowDown/> : <ArrowBack/>} */}
+                <ArrowBack style={{ transform: `${collapsible ? 'rotate(-90deg)' : 'none'}` }}/>
             </Question>
             <Answer 
                 ref={content}
