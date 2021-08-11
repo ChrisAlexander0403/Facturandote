@@ -7,6 +7,10 @@ import catCFDI from '../../documents/catCFDI.xls';
 
 export default function TutorialsComponent(){
 
+    const openSAT = () => {
+        window.open('http://pys.sat.gob.mx/PyS/catPyS.aspx', '_blank');
+    }
+
     const videos = [
         {
             id: 1,
@@ -82,6 +86,13 @@ export default function TutorialsComponent(){
                             </DownloadButton>
                         </Button>
                     </Download>
+                    <Button onClick={openSAT}>
+                        <Text>Acceder</Text>
+                        <DownloadButton>
+                            <Text className='inside'>Catálogo de productos y servicios</Text>
+                            <Text className='inside down'>SAT</Text>
+                        </DownloadButton>
+                    </Button>
                 </LinksContainer>
             </Container>
         </Body>

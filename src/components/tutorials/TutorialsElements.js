@@ -67,6 +67,7 @@ export const Button = styled.div`
     width: 200px;
     background: #333;
     padding: 0;
+    cursor: pointer;
     /* box-shadow: 0 20px 35px #ffef0050; */
 `;
 
@@ -101,5 +102,4 @@ export const DownloadButton = styled.div`
 
 export const Download = styled.a`
     text-decoration: none;
-    cursor: pointer;
 `;
