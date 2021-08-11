@@ -31,7 +31,7 @@ export default function GuideContainer(){
                     clipPathMobile={TitleContainerProps.Mobile} 
                     flex={TitleContainerProps.Flex}>
                     <Title 
-                        to="/Contact"
+                        to="/Contact/Training"
                         align={TitleContainerProps.Align}>
                         Solicitar Capacitación
                     </Title>

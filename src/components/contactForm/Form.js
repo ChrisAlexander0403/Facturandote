@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {DivForm, ContactForm, Subtitle, Text, AreaText, 
     Label, Input, TextArea, SendInput, Error} from './ContactElements';
 import useForm from './UseForm';
 import ValidateInfo from './ValidateInfo';
 
-export default function Form({submitForm}){
+export default function Form({ submitForm, subject }){
+    const [text, setText] = useState('');
+
+    useEffect(() => {
+        console.log(subject);
+        if(subject === 'Training'){
+            setText('Me gustaría recibir capacitación.');
+        }else if(subject === 'Free'){
+            setText('Quiero recibir mis folios gratis.')
+        }else{
+            setText('');
+        }
+    }, [subject]);
 
     const {handleChange, values, handleSubmit, errors} = useForm(submitForm,ValidateInfo);
 
@@ -72,6 +84,7 @@ export default function Form({submitForm}){
                         name={'Comment'}
                         values={values.Comment}
                         onChange={handleChange}
+                        defaultValue={text}
                         />
                         {errors.Comment && <Error>{errors.Comment}</Error>}
                     </AreaText>

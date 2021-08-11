@@ -8,7 +8,7 @@ import Form from './Form';
 import FormSuccess from './FormSuccess'
 import axios from 'axios';
 
-export default function ContactComponent() {
+export default function ContactComponent({ subject }) {
     const [isSubmitted, setIsSubmitted] = useState(false)
     async function submitForm(values) {
         await axios.post('http://localhost:8000/api/mails/contact', {
@@ -24,7 +24,7 @@ export default function ContactComponent() {
             <Container>
                 <Title><Span>C</Span>ontáctanos</Title>
                 <FormContainer>
-                    {!isSubmitted ? <Form submitForm={submitForm} /> : <FormSuccess />}
+                    {!isSubmitted ? <Form submitForm={submitForm} subject={subject}/> : <FormSuccess />}
                     <InfoForm>
                         <Subtitle>Más Información</Subtitle>
                         <TextInfo><Location /><p>C.20 No.277 x23 y 23-A Col. Miguel Alemán, Mérida Yucatán, 97148.</p></TextInfo>

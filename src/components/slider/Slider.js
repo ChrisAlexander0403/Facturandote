@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, Controllers, DivText, Image, LeftArrow, Main, RightArrow, Slide, SlideShow, Text } from './SliderElements';
+import { Button, Buy, Controllers, Div, DivDistributor, DivText, Free, Image, LeftArrow, Main, RightArrow, Slide, SlideShow, Text, TextDescription, TextInfo, TextLink, TextPackages } from './SliderElements';
 
-import distribuidor from './../../img/distribuidor.png';
-import paquetesBasicos from './../../img/paquetesBasicos.png';
-import folios from './../../img/folios.png';
+import distribuidor from './../../img/distribuidor.jpg';
+import paquetesBasicos from './../../img/paquetesBasicos.jpg';
+import folios from './../../img/folios.jpg';
 
 const Slider = (props) => {
     const slideShow = useRef(null);
@@ -17,7 +17,7 @@ const Slider = (props) => {
 
     useEffect(() => {
 
-        slideShow.current.addEventListener('dragstar', (e) => e.preventDefault());
+        slideShow.current.addEventListener('dragstart', (e) => e.preventDefault());
 
         intervalSlideShow.current = setInterval(() => {
             next();
@@ -76,25 +76,42 @@ const Slider = (props) => {
         }
     }
 
-    const start = (e) => {
-        setStartPosition(getPositionX(e));
-        setIsDragging(true);
-        setAnimationID(requestAnimationFrame(animation));
+    const slides = Array.from(document.querySelectorAll('.slide'));
+
+    slides.forEach((slide, index) => {
+        slide.addEventListener('touchstart', touchStart(index));
+        slide.addEventListener('touchend', touchEnd);
+        slide.addEventListener('touchmove', touchMove);
+
+        slide.addEventListener('mousedown', touchStart(index));
+        slide.addEventListener('mouseup', touchEnd);
+        slide.addEventListener('mouseleave', touchEnd);
+        slide.addEventListener('mousemove', touchMove);
+    })
+
+    const touchStart = (index) => {
+        return (e) => {
+            setCurrentIndex(index);
+            setStartPosition(getPositionX(e));
+            setIsDragging(true);
+            setAnimationID(requestAnimationFrame(animation));
+        }
     }
 
-    const end = () => {
+    const touchEnd = () => {
         setIsDragging(false);
         cancelAnimationFrame(animationID);
         const movedBy = currentTranslate - prevTranslate;
-        if(movedBy < -100){
-            next();
+        if(movedBy < -100 && currentIndex < slides.length){
+            setCurrentIndex(currentIndex + 1);
         }
-        if(movedBy > 100){
-            prev();
+        if(movedBy > 100 && currentIndex > 0){
+            setCurrentIndex(currentIndex -1);
         }
+        setPositionByIndex()
     }
 
-    const move = (e) => {
+    const touchMove = (e) => {
         if(isDragging){
             const currentPosition = getPositionX(e);
             setCurrentTranslate(prevTranslate + currentPosition - startPosition)
@@ -124,38 +141,39 @@ const Slider = (props) => {
 
     return (
         <Main width={props.width}>
-            <SlideShow 
-                ref={slideShow} 
-                onTouchStart={start} 
-                onTouchEnd={end} 
-                onTouchMove={move}
-                onMouseDown={start}
-                onMouseUp={end}
-                onMouseMove={move}
-                onMouseLeave={end}
-            >
-                <Slide>
-
-                        <Image src={distribuidor} alt={""}/>
-  
-                    {/* <DivText background={"rgba(0, 0, 0, .5)"}>
-                        <Text color={"#fff"}>15% de descuento en productos apple</Text>
-                    </DivText> */}
+            <SlideShow ref={slideShow}>
+                <Slide className={'slide'}>
+                    <DivDistributor>
+                        <TextInfo className='distributor'>¿Quieres ser distribuidor?</TextInfo>
+                        <TextDescription>
+                            Forma parte de nuestro equipo de distribuidores y comienza a generar ingresos como aliado Facturándote.
+                        </TextDescription>
+                    </DivDistributor>
+                    {/* <BecomeDistributor to={'/DistributorAccess'} /> */}
+                    <Image src={distribuidor} alt={""}/>
+                    <DivText background={"rgba(0, 0, 0, .5)"}>
+                        <TextLink to={'/DistributorAccess'} color={"#ffef00"}>Haz click aquí y conviértete en distribuidor</TextLink>
+                    </DivText>
                 </Slide>
-                <Slide>
-                        <Image src={paquetesBasicos} alt={""}/>
-                    
+                <Slide className={'slide'}>
+                    <TextPackages>Prueba nuestros paquetes más económicos.</TextPackages>
+                    <Buy to={`/Services`} />
+                    <Image src={paquetesBasicos} alt={""}/>
                     {/* <DivText>
                         <Text>15% de descuento en productos apple</Text>
                     </DivText> */}
                 </Slide>
-                <Slide>
-
-                        <Image src={folios} alt={""}/>
-                    
-                    {/* <DivText>
-                        <Text>15% de descuento en productos apple</Text>
-                    </DivText> */}
+                <Slide className={'slide'}>
+                    <Div>
+                        <TextInfo>
+                            ¡Solicita tus folios gratis, YA!
+                        </TextInfo>
+                    </Div>
+                    <Free to={`/Contact/Free`} />
+                    <Image src={folios} alt={""}/>
+                    <DivText>
+                        <Text color={'#ffef00'} fontSize={'12px'}>Promoción válida sólo para nuevos usuarios.</Text>
+                    </DivText>
                 </Slide>
             </SlideShow>
             <Controllers>
