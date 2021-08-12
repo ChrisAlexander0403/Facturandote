@@ -8,6 +8,7 @@ const rotate = keyframes`
 
 export const DivForm = styled.div`
     padding: 2em;
+    min-height: 400px;
     @media screen and (max-width: 768px){
         padding: 1em 2em;
     }
