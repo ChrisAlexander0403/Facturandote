@@ -1,19 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 
-import useFormPayment from '../../hooks/useFormPayment';
-import File from '../components/inputFile/inputFile';
+import {
+    Form, Button, Spinner, FormGroup, Label, Input, DropdownList,
+    DropdownBtn, DropdownArrow, DropdownContent, DropdownItem, Error, StyledCardElement, RadioDiv, RadioLabel, Stripe
+} from './PaymentElements';
 import data from './cfdi.json';
-import productData from '../productSlider/ProductSliderData.json';
+// import useForm from '../../hooks/useFormPayment';
 import { ValidateEmail, ValidateInfo, ValidateName, ValidatePhone, ValidateReason, ValidateRFC } from './ValidateInfo';
-import { Form, Button, StyledCardElement, FormGroup, Label, Input, Error, DropdownList, DropdownBtn, DropdownArrow, DropdownContent, DropdownItem, RadioDiv, RadioLabel, Spinner, Stripe } from './PaymentElements';
+import productData from '../productSlider/ProductSliderData.json';
+import File from '../components/inputFile/inputFile';
 import { allowEmailCharacters, allowLettersOnly, blockSpecialCaracters, formatInput, limitPhone } from '../../validations';
 
-export default function CheckoutForm({ id, submitForm, payment, setPayment, loading }) {
-    const [isActive, setIsActive] = useState(false);
-    const [selected, setSelected] =  useState('Uso de CFDI');
-    const [cardElement, setCardElement] = useState({});
+export default function CheckoutForm({ id, submitForm, loading, payment, setPayment, response }) {
     const [product, setProduct] = useState([]);
+    const [selected, setSelected] =  useState('Uso de CFDI');
+    const [isActive, setIsActive] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [cardElement, setCardElement] = useState(null);
+    const [error, setError] = useState('');
+    const [paymentMethod, setPaymentMethod] = useState({});
     const [values, setValues] = useState({
         name: '',
         phone: '',
@@ -23,7 +30,6 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
         cfdi: '',
         file: [],
         product: '',
-        cardElement: '',
         price: ''
     });
 
@@ -35,42 +41,53 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
     
     const stripe = useStripe();
     const elements = useElements();
+    
+    const updateUploadedFiles = (files) => setValues({ ...values, file: files});
 
-    const {handleChange, handleForm, errors, setErrors} = useFormPayment(values, setValues, submitForm,ValidateInfo, cardElement);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors(ValidateInfo(values));
+        setIsSubmitting(true);
         setValues({ 
             ...values, 
             price: (product.pricePlusIVA * 100), 
             product: (product.type + ' ' + product.name + ' ' + product.content)
         });
         if(payment === '1'){
+            setCardElement(elements.getElement(CardElement));
             const { error, paymentMethod } = await stripe.createPaymentMethod({
                 type: 'card',
                 card: elements.getElement(CardElement)
             });
-            setCardElement({
-                error: error,
-                paymentMethod: paymentMethod
-            });
+            setError(error);
+            setPaymentMethod(paymentMethod);
         }
-        handleForm();
     }
-
-    const updateUploadedFiles = (files) => setValues({ ...values, file: files});
-
+    
     const changePaymentMethod = (e) => {
         setPayment(e.target.value);
     }
 
     useEffect(() => {
-        if (id.charAt(0) === 'e') {
-            setProduct(productData.emision.find(el => el.id === id));
-        } else if (id.charAt(0) === 't') {
-            setProduct(productData.timbrado.find(el => el.id === id))
+        if(payment === '1'){
+            if (Object.keys(errors).length === 0 && isSubmitting) {
+                submitForm(values, error, paymentMethod, cardElement);
+                setIsSubmitting(false);
+            }
+        }else{
+            if (Object.keys(errors).length === 0 && isSubmitting) {
+                submitForm(values);
+            }
         }
-    }, [id]);
+    }, [errors, cardElement, values, isSubmitting, payment, paymentMethod, error, submitForm]);
 
     useEffect(() => {
         if(errors.name){
@@ -116,7 +133,15 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
         if(errors.cfdi){
             if(values.cfdi) setErrors({ ...errors, cfdi: false })
         }
-    }, [errors, values, setErrors]);
+    }, [errors, values]);
+
+    useEffect(() => {
+        if (id.charAt(0) === 'e') {
+            setProduct(productData.emision.find(el => el.id === id));
+        } else if (id.charAt(0) === 't') {
+            setProduct(productData.timbrado.find(el => el.id === id))
+        }
+    }, [id]);
     
     return (
         <Form onSubmit={handleSubmit}>
@@ -176,9 +201,9 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
                     ref={inputReason}
                 />
                 {errors.reason && <Error>{errors.reason}</Error>}
+            </FormGroup>
             <FormGroup>
                 <Label>Correo</Label>
-            </FormGroup>
                 <Input
                     id={'email'}
                     placeholder={'correo@dominio.com'}
@@ -232,7 +257,7 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
                 <StyledCardElement 
                     options={{ style: { base: { color: '#fff' } } }} 
                 />
-                {/* {response !== "Successful payment" && <Error style={{ marginBottom: '20px'}}>{response}</Error>} */}
+                {response !== "Successful payment" && <Error style={{ marginBottom: '20px'}}>{response}</Error>}
             </div>
             : payment === '2' &&
             <FormGroup>
@@ -243,9 +268,7 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
                 />
                 {errors.file && <Error>{errors.file}</Error>}
             </FormGroup>}
-            <Button type='submit' disabled={!stripe}>
-                {loading ? <Spinner /> : "Comprar"}
-            </Button>
+            <Button type='submit'>{loading ? <Spinner /> : "Comprar"}</Button>
         </Form>
     );
 }

@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { formatInput, limitPhone } from '../../validations';
 import { SignUpForm, Info, Label, Input, Text, TextArea, SendInput, Error, Subtitle } from './DistributorAccessElements';
-import useForm from './UseForm';
+import useForm from '../../hooks/UseForm';
 import ValidateInfo from './ValidateInfo';
 
-
 export default function Form({submitForm}){
-    const {handleChange, values, handleSubmit, errors} = useForm(submitForm,ValidateInfo);
+    const [values, setValues] = useState({
+        enterprise: '',
+        address: '',
+        city: '',
+        state: '',
+        name: '',
+        phone: '',
+        email: '',
+        message: ''
+    });
 
-    function formatInput(e){
-        // Prevent characters that are not numbers ("e", ".", "+" & "-") 
-        let checkIfNum;
-        if (e.key !== undefined) {
-          // Check if it's a "e", ".", "+" or "-"
-          checkIfNum = e.key === "e" || e.key === "." || e.key === "+" || e.key === "-" ;
-        }
-        else if (e.keyCode !== undefined) {
-          // Check if it's a "e" (69), "." (190), "+" (187) or "-" (189)
-          checkIfNum = e.keyCode === 69 || e.keyCode === 190 || e.keyCode === 187 || e.keyCode === 189;
-        }
-        return checkIfNum && e.preventDefault();
-    }
+    const {handleChange, handleSubmit, errors} = useForm(values, setValues, submitForm,ValidateInfo);
+
     return(
         <SignUpForm>
             <form onSubmit={handleSubmit}>
@@ -92,6 +90,7 @@ export default function Form({submitForm}){
                         type={'number'} 
                         placeholder={'Teléfono'}
                         name={'phone'}
+                        onInput={limitPhone}
                         value={values.phone}
                         onChange={handleChange}
                         onKeyDown={formatInput}

@@ -1,0 +1,92 @@
+{
+    "cfdi":[
+        {
+            "id": "G01",
+            "content": "Adquisición de mercancías"
+        },
+        {
+            "id": "G02",
+            "content": "Devoluciones, descuentos o bonificaciones"
+        },
+        {
+            "id": "G03",
+            "content": "Gastos en general"
+        },
+        {
+            "id": "I01",
+            "content": "Construcciones"
+        },
+        {
+            "id": "I02",
+            "content": "Mobiliario y equipo de oficina por inversiones"
+        },
+        {
+            "id": "I03",
+            "content": "Equipo de transporte"
+        },
+        {
+            "id": "I04",
+            "content": "Equipo de cómputo y accesorios"
+        },
+        {
+            "id": "I05",
+            "content": "Dados, troleques, moldes, matrices y herramiental"
+        },
+        {
+            "id": "I06",
+            "content": "Comunicaciones telefónicas"
+        },
+        {
+            "id": "I07",
+            "content": "Comunicaciones satelitales"
+        },
+        {
+            "id": "I08",
+            "content": "Otra máquina y equipo"
+        },
+        {
+            "id": "D01",
+            "content": "Honorarios médicos, dentales y gastos hospitalarios"
+        },
+        {
+            "id": "D02",
+            "content": "Gastos médicos por incapacidad o discapacidad"
+        },
+        {
+            "id": "D03",
+            "content": "Gastos funerales"
+        },
+        {
+            "id": "D04",
+            "content": "Donativos"
+        },
+        {
+            "id": "D05",
+            "content": "Intereses reales efectivamente pagados por créditos hipotecarios"
+        },
+        {
+            "id": "D06",
+            "content": "Aportaciones voluntarias al SAR"
+        },
+        {
+            "id": "D07",
+            "content": "Primas por seguros de gastos médicos"
+        },
+        {
+            "id": "D08",
+            "content": "Gastos de transporación escolar obligatoria"
+        },
+        {
+            "id": "D09",
+            "content": "Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones"
+        },
+        {
+            "id": "D10",
+            "content": "Pagos por servicios educativos (colegiaturas)"
+        },
+        {
+            "id": "P01",
+            "content": "Por definir"
+        }
+    ]
+}

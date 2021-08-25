@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { allowEmailCharacters, allowLettersOnly, formatInput, limitPhone } from '../../validations';
 import {DivForm, ContactForm, Subtitle, Text, AreaText, 
     Label, Input, TextArea, SendInput, Error} from './ContactElements';
-import useForm from './UseForm';
+import useForm from '../../hooks/UseForm';
 import ValidateInfo from './ValidateInfo';
 
 export default function Form({ submitForm, subject }){
     const [text, setText] = useState('');
+    const [values, setValues] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        Comment: ''
+    });
+
+    const {handleChange, handleSubmit, errors} = useForm(values, setValues, submitForm,ValidateInfo);
 
     useEffect(() => {
         console.log(subject);
@@ -18,21 +27,6 @@ export default function Form({ submitForm, subject }){
         }
     }, [subject]);
 
-    const {handleChange, values, handleSubmit, errors} = useForm(submitForm,ValidateInfo);
-
-    function formatInput(e){
-        // Prevent characters that are not numbers ("e", ".", "+" & "-") 
-        let checkIfNum;
-        if (e.key !== undefined) {
-          // Check if it's a "e", ".", "+" or "-"
-          checkIfNum = e.key === "e" || e.key === "." || e.key === "+" || e.key === "-" ;
-        }
-        else if (e.keyCode !== undefined) {
-          // Check if it's a "e" (69), "." (190), "+" (187) or "-" (189)
-          checkIfNum = e.keyCode === 69 || e.keyCode === 190 || e.keyCode === 187 || e.keyCode === 189;
-        }
-        return checkIfNum && e.preventDefault();
-      }
 
     return(
         <DivForm>
@@ -46,8 +40,9 @@ export default function Form({ submitForm, subject }){
                         type={'text'} 
                         placeholder={'Nombre'} 
                         name={'name'} 
-                        value={values.name} 
+                        value={values.name.replace(/\s+/g, ' ')} 
                         onChange={handleChange}
+                        onKeyPress={allowLettersOnly}
                         />
                         {errors.name && <Error>{errors.name}</Error>}
                     </Text>
@@ -58,7 +53,8 @@ export default function Form({ submitForm, subject }){
                         type={'text'} 
                         placeholder={'Correo'} 
                         name={'email'} 
-                        value={values.email} 
+                        value={values.email}
+                        onKeyPress={allowEmailCharacters} 
                         onChange={handleChange}
                         />
                         {errors.email && <Error>{errors.email}</Error>}   
@@ -69,7 +65,8 @@ export default function Form({ submitForm, subject }){
                         id={'phone'}
                         type={'number'} 
                         placeholder={'Teléfono'} 
-                        name={'phone'} 
+                        name={'phone'}
+                        onInput={limitPhone}
                         values={values.phone} 
                         onChange={handleChange}
                         onKeyDown={formatInput}
@@ -82,7 +79,7 @@ export default function Form({ submitForm, subject }){
                         id={'Comment'}
                         placeholder={'Escribe algo...'} 
                         name={'Comment'}
-                        values={values.Comment}
+                        values={values.Comment.replace(/\s+/g, ' ')}
                         onChange={handleChange}
                         defaultValue={text}
                         />

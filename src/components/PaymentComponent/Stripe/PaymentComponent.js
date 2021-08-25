@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Div } from './PaymentElements';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 import { Body, Container, Title, Span } from '../header/Header';
 import DetailsForm from './DetailsForm';
-import axios from 'axios';
 import SuccessPay from './SuccessPay';
+import axios from 'axios';
 
 export default function PaymentComponent({ id }) {
-    const [stripePromise, setStripePromise] = useState('');
-    const [stripeReady, setStripeReady] = useState(false);
+    const stripePromise = loadStripe(
+        "pk_test_51JQah1JQogaIBfeRsXYDtQd6f57E87W8eu33AA7Eg62LkG6stlsX9zIc4298EqIDYwo5VrHAuItb1djCACL3ACq1002FHmZ9rI"
+    );
     const [payment, setPayment] = useState('1');
     const [loading, setLoading] = useState(false);
     const [response, setResponse] = useState('');
-    const [mailValues, setMailValues] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    const submitForm = async (values, cardElement) => {
-        setMailValues(values);
+    const submitForm = async (values, error, paymentMethod, cardElement) => {
         if(payment === '1'){
             setLoading(true);
-            if(!cardElement.error){
-                const { id } = cardElement.paymentMethod;
+            if(!error){
+                const { id } = paymentMethod;
                 try{
                     const { data } = await axios.post('http://localhost:8000/api/buys', {
                         id,
@@ -34,6 +32,24 @@ export default function PaymentComponent({ id }) {
                     console.log(data);
                 }catch(err){
                     console.log(err);
+                }
+                try{
+                    if(response === "Successful payment"){
+                        await axios.post('http://localhost:8000/api/mails/cardPaymentSucceeded', {
+                            name: values.name,
+                            phone: values.phone,
+                            rfc: values.rfc,
+                            email: values.email,
+                            reason: values.reason,
+                            cfdi: values.cfdi,
+                            price: values.price,
+                            product: values.product
+                        });
+                        setIsSubmitted(true);
+                        cardElement.clear();
+                    }
+                }catch(err){
+
                 }
             }
             setLoading(false);
@@ -66,62 +82,29 @@ export default function PaymentComponent({ id }) {
                 console.log(error);
             }
         }
-        setLoading(false);   
+        setLoading(false);  
     }
-
-    useEffect(() => {
-        const sendMail = async () => {
-            try{
-                if(response === "Successful payment"){
-                    await axios.post('http://localhost:8000/api/mails/cardPaymentSucceeded', {
-                        name: mailValues.name,
-                        phone: mailValues.phone,
-                        rfc: mailValues.rfc,
-                        email: mailValues.email,
-                        reason: mailValues.reason,
-                        cfdi: mailValues.cfdi,
-                        price: mailValues.price,
-                        product: mailValues.product
-                    });
-                    setIsSubmitted(true);
-                }
-            }catch(err){
-    
-            }
-        }
-
-        if(response === "Successful payment"){
-            sendMail();
-        }
-        
-    }, [response, mailValues]);
-
-    useEffect(() => {
-        setStripePromise(loadStripe("pk_test_51JQah1JQogaIBfeRsXYDtQd6f57E87W8eu33AA7Eg62LkG6stlsX9zIc4298EqIDYwo5VrHAuItb1djCACL3ACq1002FHmZ9rI"));
-        setStripeReady(true);
-    }, []);
 
     return (
         <Body>
             <Container>
                 <Title><Span>R</Span>ealizar Compra</Title>
-                    {!isSubmitted ?
-                        <Div>
-                            <DetailsForm id={id} payment={payment} />
-                            { stripeReady && 
-                                <Elements stripe={stripePromise}>
-                                    <CheckoutForm 
-                                        id={id}
-                                        submitForm={submitForm} 
-                                        loading={loading} 
-                                        payment={payment} 
-                                        setPayment={setPayment}
-                                    />
-                                </Elements> 
-                            }
-                        </Div>
-                        : <SuccessPay />
-                    }
+                {!isSubmitted ?
+                    <Div>
+                        <DetailsForm id={id} payment={payment} />
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm 
+                                id={id} 
+                                submitForm={submitForm} 
+                                loading={loading} 
+                                payment={payment} 
+                                setPayment={setPayment}
+                                response={response}
+                            />
+                        </Elements>
+                    </Div>
+                    : <SuccessPay />
+                }
             </Container>
         </Body>
     );

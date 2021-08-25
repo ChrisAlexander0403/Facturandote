@@ -12,7 +12,7 @@ import DistributorAccess from './pages/DistributorAccess';
 import Payment from './pages/Payment';
 import Questions from './pages/Questions';
 import Tutorials from './pages/Tutorials';
-import ScrollToTop from './hooks/ScrollToTop';
+import ScrollToTop from './hooks/useScrollToTop';
 import Error404 from './pages/Error404';
 import Manual from './pages/Manual';
 

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Buy, Div, Info, InnerDiv, Name, Price, MainContainer, Container, LeftArrow, RightArrow, IVA}  from './ProductSliderElements';
+import numeral from 'numeral';
+
+import { Buy, Div, Info, InnerDiv, Name, Price, MainContainer, 
+    Container, LeftArrow, RightArrow, IVA}  from './ProductSliderElements';
 
 export default function ProductSliderComponent({ slides }) {
     const length = slides.length;
@@ -20,7 +23,7 @@ export default function ProductSliderComponent({ slides }) {
                     return (
                         <Div key={index} style={{ transform: `translateX(${x}px)` }}>
                             <InnerDiv>
-                                <Price>${slide.price}</Price>
+                                <Price>{numeral(slide.price).format('$0.00')}</Price>
                                 <Name>{slide.name}</Name>
                                 <Info>{slide.content}<br /><br />Precio por unidad: {slide.unityPrice}</Info>
                                 <Buy to={`/payment/${slide.id}`} />

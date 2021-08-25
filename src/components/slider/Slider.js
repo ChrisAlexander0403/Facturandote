@@ -14,9 +14,21 @@ const Slider = (props) => {
     const [prevTranslate, setPrevTranslate] = useState(0);
     const [animationID, setAnimationID] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    
     useEffect(() => {
-
+    
+        slides.forEach((slide, index) => {
+            slide.addEventListener('touchstart', touchStart(index));
+            slide.addEventListener('touchend', touchEnd);
+            slide.addEventListener('touchmove', touchMove);
+    
+            slide.addEventListener('mousedown', touchStart(index));
+            slide.addEventListener('mouseup', touchEnd);
+            slide.addEventListener('mouseleave', touchEnd);
+            slide.addEventListener('mousemove', touchMove);
+        });
+        
         slideShow.current.addEventListener('dragstart', (e) => e.preventDefault());
 
         intervalSlideShow.current = setInterval(() => {
@@ -33,9 +45,21 @@ const Slider = (props) => {
             }, 5000);
         });
         
-        return () => clearInterval(intervalSlideShow.current);
+        return () => {
+            slides.forEach((slide, index) => {
+                slide.removeEventListener('touchstart', touchStart(index));
+                slide.removeEventListener('touchend', touchEnd);
+                slide.removeEventListener('touchmove', touchMove);
+                
+                slide.removeEventListener('mousedown', touchStart(index));
+                slide.removeEventListener('mouseup', touchEnd);
+                slide.removeEventListener('mouseleave', touchEnd);
+                slide.removeEventListener('mousemove', touchMove);
+            });
+            clearInterval(intervalSlideShow.current);
+        }
 
-    }, []);
+    });
 
     const next = () => {
         if(slideShow.current.children.length > 0){
@@ -76,18 +100,6 @@ const Slider = (props) => {
         }
     }
 
-    const slides = Array.from(document.querySelectorAll('.slide'));
-
-    slides.forEach((slide, index) => {
-        slide.addEventListener('touchstart', touchStart(index));
-        slide.addEventListener('touchend', touchEnd);
-        slide.addEventListener('touchmove', touchMove);
-
-        slide.addEventListener('mousedown', touchStart(index));
-        slide.addEventListener('mouseup', touchEnd);
-        slide.addEventListener('mouseleave', touchEnd);
-        slide.addEventListener('mousemove', touchMove);
-    })
 
     const touchStart = (index) => {
         return (e) => {
@@ -149,7 +161,6 @@ const Slider = (props) => {
                             Forma parte de nuestro equipo de distribuidores y comienza a generar ingresos como aliado Facturándote.
                         </TextDescription>
                     </DivDistributor>
-                    {/* <BecomeDistributor to={'/DistributorAccess'} /> */}
                     <Image src={distribuidor} alt={""}/>
                     <DivText background={"rgba(0, 0, 0, .5)"}>
                         <TextLink to={'/DistributorAccess'} color={"#ffef00"}>Haz click aquí y conviértete en distribuidor</TextLink>
