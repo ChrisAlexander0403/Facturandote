@@ -4,8 +4,8 @@ export default function ValidateInfo(values){
         errors.name = "El nombre es requerido"
     }else if(values.name.length < 3){
         errors.name = "El nombre no puede ser tan corto"
-    }else if(!/^[a-zA-Z ]+$/i.test(values.name)){
-        errors.name = "No puedes ingresar números"
+    } else if (!/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s'-]+/.test(values.name)) {
+        errors.name = "Ingresa un nombre válido"
     }
     if(!values.email){
         errors.email= "El correo es requerido"

@@ -42,8 +42,8 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
         e.preventDefault();
         setValues({ 
             ...values, 
-            price: (product.pricePlusIVA * 100), 
-            product: (product.type + ' ' + product.name + ' ' + product.content)
+            price: product.pricePlusIVA, 
+            product: (product.type + ', ' + product.name + ' - ' + product.content)
         });
         if(payment === '1'){
             const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -176,9 +176,9 @@ export default function CheckoutForm({ id, submitForm, payment, setPayment, load
                     ref={inputReason}
                 />
                 {errors.reason && <Error>{errors.reason}</Error>}
+            </FormGroup>
             <FormGroup>
                 <Label>Correo</Label>
-            </FormGroup>
                 <Input
                     id={'email'}
                     placeholder={'correo@dominio.com'}

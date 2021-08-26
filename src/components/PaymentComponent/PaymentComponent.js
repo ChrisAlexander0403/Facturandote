@@ -26,9 +26,13 @@ export default function PaymentComponent({ id }) {
                 try{
                     const { data } = await axios.post('http://localhost:8000/api/buys', {
                         id,
-                        amount: values.price,
+                        amount: (values.price * 100),
                         description: values.product,
-                        email: values.email
+                        email: values.email,
+                        billing_details: {
+                            name: values.name,
+                            email: values.email
+                        },
                     });
                     setResponse(data.message);
                     console.log(data);

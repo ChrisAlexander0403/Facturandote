@@ -64,8 +64,10 @@ export const ContactForm = styled.div`
     }
 `;
 export const InfoForm = styled.div`
+    position: relative;
     background-color: #000;
     padding: 2em;
+    min-height: 350px;
     @media screen and (max-width: 768px){
         grid-column: 1/-1;
         padding: 2em 1em;
@@ -73,7 +75,9 @@ export const InfoForm = styled.div`
 `;
 
 export const SubtitleLightning = styled.h3`
-    margin-top: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 5%;
     width: 100%;
     text-align: center;
     font-size: 2.5rem;

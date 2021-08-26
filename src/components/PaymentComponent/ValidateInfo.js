@@ -5,7 +5,7 @@ export function ValidateInfo(values) {
     } else if (values.name.length < 5) {
         errors.name = "El nombre no puede ser tan corto"
     } else if (!/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s'-]+/.test(values.name)) {
-        errors.name = "No puedes ingresar números"
+        errors.name = "Ingresa un nombre válido"
     }
     if (!values.phone) {
         errors.phone = "El celular es requerido"

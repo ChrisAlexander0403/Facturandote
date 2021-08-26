@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { formatInput, limitPhone } from '../../validations';
-import { SignUpForm, Info, Label, Input, Text, TextArea, SendInput, Error, Subtitle } from './DistributorAccessElements';
+import { SignUpForm, Info, Label, Input, Text, SendInput, Error, Subtitle } from './DistributorAccessElements';
 import useForm from '../../hooks/UseForm';
 import ValidateInfo from './ValidateInfo';
 
@@ -12,8 +12,7 @@ export default function Form({submitForm}){
         state: '',
         name: '',
         phone: '',
-        email: '',
-        message: ''
+        email: ''
     });
 
     const {handleChange, handleSubmit, errors} = useForm(values, setValues, submitForm,ValidateInfo);
@@ -22,7 +21,7 @@ export default function Form({submitForm}){
         <SignUpForm>
             <form onSubmit={handleSubmit}>
                 <Subtitle>¿Quieres ser parte de nuestro equipo de Distribuidores?</Subtitle>
-                <Info>Mándanos tus datos y te contactaremos para que seas parte de nosotros.</Info>
+                <Info>Envíanos tus datos y te contactaremos para que seas parte de nosotros.</Info>
                 <Text>
                     <Label>Empresa o Razón Social</Label>
                     <Input 
@@ -108,17 +107,6 @@ export default function Form({submitForm}){
                         onChange={handleChange}
                         ></Input>   
                         {errors.email && <Error>{errors.email}</Error>} 
-                </Text>
-                <Text>
-                    <Label>Mensaje</Label>
-                    <TextArea 
-                        id={'message'}
-                        placeholder={'Escriba un mensaje...'}
-                        name={'message'}
-                        value={values.message}
-                        onChange={handleChange}
-                        ></TextArea>   
-                        {errors.message && <Error>{errors.message}</Error>}
                 </Text>
                 <SendInput/>
             </form>
