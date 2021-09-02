@@ -163,6 +163,7 @@ export const Input = styled.input.attrs(props => ({
     &::-webkit-inner-spin-button {
     /* display: none; <- Crashes Chrome on hover */
     -webkit-appearance: none;
+    -moz-appearance:textfield;
     margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
     }
     &:-webkit-autofill,
